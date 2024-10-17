@@ -25,6 +25,8 @@ export default function Login() {
   };
 
   return (
+    <div>
+      <h2>Login</h2>
     <form onSubmit={handleLogin}>
       <input
         type="email"
@@ -40,5 +42,6 @@ export default function Login() {
       />
       <button type="submit">Login</button>
     </form>
+    </div>
   );
 }
