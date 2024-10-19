@@ -18,6 +18,13 @@ const LoginPage: React.FC = () => {
       if (user) {
         console.log('Login successful!');
         const role = await getUserRole(user.uid);
+
+        // Create a token with the role (use real token creation in production)
+        const token = JSON.stringify({ role });
+
+        // Set token in cookies (for next.js middleware to read)
+        document.cookie = `token=${token}; path=/`;
+
         if (role === 'freelancer') {
           router.push('/dashboard/freelancer'); // Redirect to freelancer dashboard
         } else if (role === 'employer') {
