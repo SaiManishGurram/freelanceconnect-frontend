@@ -1,10 +1,10 @@
 // src/services/firebase.ts
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { FirebaseApp } from "firebase/app"; // Import FirebaseApp type
+import { initializeApp, getApps, getApp } from 'firebase/app';
+import { getAuth, setPersistence, browserLocalPersistence } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
+import { FirebaseApp } from 'firebase/app'; // Import FirebaseApp type
 
-// Define your Firebase configuration using environment variables
+// Firebase configuration (using environment variables for security)
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -15,12 +15,25 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-// Initialize Firebase app
-const app: FirebaseApp = initializeApp(firebaseConfig);
+// Initialize Firebase app only if it hasn't been initialized yet
+const app: FirebaseApp = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
-// Get Firebase authentication instance
+// Initialize Firebase services
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Export the auth instance for use in other parts of the app
+// Set persistent authentication state
+setPersistence(auth, browserLocalPersistence).catch((error) => {
+  console.error('Error setting persistence:', error);
+});
+
+// Function to ensure Firebase is initialized (though it should be initialized globally)
+export const initFirebase = (): FirebaseApp => {
+  if (!getApps().length) {
+    return initializeApp(firebaseConfig);
+  }
+  return getApp();
+};
+
+// Export initialized Firebase services
 export { auth, db };
