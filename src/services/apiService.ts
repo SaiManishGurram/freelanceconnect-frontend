@@ -51,3 +51,7 @@ export const createJob = async (jobData: {
   }) => {
     return await apiRequest(endpoints.createEmployerJob, 'POST', jobData);
   };
+
+  export const deleteJob = async (job: any) => {    
+    return await apiRequest(endpoints.deleteEmployerJob + job._id, 'DELETE');
+  };
