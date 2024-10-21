@@ -2,10 +2,11 @@
 'use client';
 
 import React from 'react';
+import { deleteJob } from '../../../services/apiService';
 
 interface JobCardProps {
   job: {
-    id: number;
+    _id: string;
     title: string;
     description: string;
     skills: string;
@@ -15,12 +16,15 @@ interface JobCardProps {
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
   const handleEditJob = () => {
     // Logic for editing the job
-    console.log(`Edit job with ID: ${job.id}`);
+    console.log(`Edit job with ID: ${job._id}`);
   };
 
-  const handleDeleteJob = () => {
+  const handleDeleteJob = async() => {
     // Logic for deleting the job
-    console.log(`Delete job with ID: ${job.id}`);
+    console.log(`Delete job with ID: ${job._id}`);
+
+    await deleteJob(job);
+
   };
 
   return (

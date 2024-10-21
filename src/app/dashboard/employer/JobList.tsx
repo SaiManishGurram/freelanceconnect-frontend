@@ -7,7 +7,7 @@ import { getEmployerJobs } from '../../../services/apiService';
 
 // Define the job type explicitly
 interface Job {
-  id: number;
+  _id: string;
   title: string;
   description: string;
   skills: string;
@@ -33,7 +33,7 @@ const JobList: React.FC = () => {
   return (
     <div>
       {jobs.length > 0 ? (
-        jobs.map((job) => <JobCard key={job.id} job={job} />)
+        jobs.map((job) => <JobCard key={job._id} job={job} />)
       ) : (
         <p>No job postings found.</p>
       )}
