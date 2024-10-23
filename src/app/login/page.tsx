@@ -7,12 +7,16 @@ import LoginForm from '../components/Auth/LoginForm';
 import { loginUser } from '../../services/authService';
 import { useRouter } from 'next/navigation';
 import {getUserRole} from '../../services/authService'
+import { useLoading } from '../../context/LoadingContext';
+import Spinner from '../components/Spinner';
 
 const LoginPage: React.FC = () => {
   const router = useRouter()
   const [error, setError] = useState('');
+  const { loading, setLoading } = useLoading();
 
   const handleLogin = async (email: string, password: string) => {
+    setLoading(true);
     try {
       const user = await loginUser(email, password); // Handle Firebase login
       if (user) {
@@ -37,7 +41,8 @@ const LoginPage: React.FC = () => {
     } catch (error) {
       console.error('Login failed', error);
       setError((error as Error).message);
-
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -45,7 +50,8 @@ const LoginPage: React.FC = () => {
 
   return (
     <div>
-      <LoginForm onLogin={handleLogin} />
+      {loading && <Spinner />}
+      <LoginForm onLogin={handleLogin} errorMessage={error}/>
     </div>
   );
 };

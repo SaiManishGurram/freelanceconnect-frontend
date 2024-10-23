@@ -8,9 +8,9 @@ import { auth, db } from './firebase'; // Adjust the path if needed
 // Firebase login function
 export const loginUser = async (email: string, password: string) => {
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);    
     return userCredential.user;
-  } catch (error) {
+  } catch (error) {    
     throw error;
   }
 };

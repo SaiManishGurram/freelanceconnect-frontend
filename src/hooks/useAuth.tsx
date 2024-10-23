@@ -3,6 +3,7 @@ import { useEffect, useState, useContext, createContext, ReactNode } from 'react
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth, initFirebase } from '@/services/firebase';
 import { useRouter } from 'next/navigation';
+import Spinner from '../app/components/Spinner';
 
 interface AuthContextType {
   user: User | null;
@@ -38,15 +39,15 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   }, []);
 
   // Optional: Redirect to login if no user is authenticated
-  useEffect(() => {
-    if (!loading && !user) {
-      router.push('/login');
-    }
-  }, [loading, user, router]);
+  // useEffect(() => {
+  //   if (!loading && !user) {
+  //     router.push('/');
+  //   }
+  // }, [loading, user, router]);
 
   return (
     <AuthContext.Provider value={{ user, loading, error }}>
-      {!loading ? children : <div>Loading...</div>}  {/* Render children when not loading */}
+      {!loading ? children : <div><Spinner /></div>}  {/* Render children when not loading */}
     </AuthContext.Provider>
   );
 };
