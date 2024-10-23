@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { AuthProvider } from '@/hooks/useAuth'; // Adjust the import based on your file structure
+import Header from './components/Header/Header';  // Adjust the path if needed
+import { LoadingProvider } from '../context/LoadingContext';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,7 +33,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider>
+          <Header/>
+          <LoadingProvider>
           {children}
+          </LoadingProvider>
         </AuthProvider>
       </body>
     </html>

@@ -1,7 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #108a00;
+  --secondary-color: #14a800;
+  --text-color: #181818;
+}
+
 /* src/app/globals.css */
 body {
   background-color: white;
-  color: black; /* Optional: Ensure text is visible on a white background */
+  color: #181818; /* Optional: Ensure text is visible on a white background */
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -72,4 +82,20 @@ div {
 }
 .job-card button {
   margin-right: 5px;
+}
+
+.text-color-cool-black {
+  color: var(--text-color);
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: var(--btn-shadow);
+  border-radius: 12px;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  transition: background-color 200ms ease-in-out;
 }

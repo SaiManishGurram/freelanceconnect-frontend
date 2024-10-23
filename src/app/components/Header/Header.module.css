@@ -1,0 +1,32 @@
+/* src/components/Header.module.css */
+.header {
+    background-color: #0070f3;
+    padding: 10px 0;
+    margin-bottom: 20px;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .li {
+    margin: 0 10px;
+  }
+  
+  .link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  
