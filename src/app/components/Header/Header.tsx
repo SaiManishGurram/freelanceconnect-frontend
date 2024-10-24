@@ -25,7 +25,7 @@ export default function Example() {
     const handleSignUpClick = () => {
         router.push('/register');
     };
-    if (pathname == '/login' || pathname == '/register') {
+    if (pathname == '/') {
         isAuthPage = true;
     } else {
         isAuthPage = false;
@@ -54,7 +54,7 @@ export default function Example() {
                         <Bars3Icon aria-hidden="true" className="h-6 w-6" />
                     </button>
                 </div>
-                {!isAuthPage && ( // Hide buttons if on /login page
+                {isAuthPage && ( // Hide buttons if on /login page
 
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                         <Button
@@ -64,7 +64,7 @@ export default function Example() {
                             Log in
                         </Button>
                         <Button
-                            className="btn py-2 px-4 text-sm text-white font-semibold"
+                            className="py-2 px-4 text-sm text-white font-semibold bg-green-primary text-white rounded-[12px] hover:bg-green-secondary transition-colors transition-transform duration-200 active:scale-95"
                             onClick={handleSignUpClick}
                         >
                             Sign up

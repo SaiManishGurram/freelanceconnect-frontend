@@ -41,7 +41,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
                 onChange={(e) => setFirstName(e.target.value)}
                 placeholder="Enter your first name"
                 required
-                className="mt-1 block w-full px-3 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full px-3 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-secondary focus:border-green-secondary"
               />
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <UserIcon className="h-5 w-5 text-gray-400" />
@@ -55,7 +55,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
                 onChange={(e) => setLastName(e.target.value)}
                 placeholder="Enter your last name"
                 required
-                className="mt-1 block w-full px-3 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full px-3 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-secondary focus:border-green-secondary"
               />
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <UserIcon className="h-5 w-5 text-gray-400" />
@@ -69,7 +69,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
-                className="mt-1 block w-full px-3 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full px-3 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-secondary focus:border-green-secondary"
               />
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <EnvelopeIcon className="h-5 w-5 text-gray-400" />
@@ -83,7 +83,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
                   value="freelancer"
                   checked={role === 'freelancer'}
                   onChange={(e) => setRole(e.target.value as 'freelancer' | 'employer')}
-                  className="form-radio text-green-500"
+                  className="form-radio text-green-secondary"
                 />
                 <span className="ml-2">Freelancer</span>
               </label>
@@ -93,7 +93,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
                   value="employer"
                   checked={role === 'employer'}
                   onChange={(e) => setRole(e.target.value as 'freelancer' | 'employer')}
-                  className="form-radio text-green-500"
+                  className="form-radio text-green-secondary"
                 />
                 <span className="ml-2">Employer</span>
               </label>
@@ -106,7 +106,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
                 required
-                className="mt-1 block w-full px-3 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full px-3 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-secondary focus:border-green-secondary"
               />
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <LockClosedIcon className="h-5 w-5 text-gray-400" />
@@ -120,7 +120,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Confirm your password"
                 required
-                className="mt-1 block w-full px-3 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full px-3 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-secondary focus:border-green-secondary"
               />
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <LockClosedIcon className="h-5 w-5 text-gray-400" />
@@ -129,7 +129,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister }) => {
             {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
             <button
               type="submit"
-              className="btn w-full py-2 px-4"
+              className="w-full py-2 px-4 bg-green-primary text-white rounded-[12px] hover:bg-green-secondary transition-colors transition-transform duration-200 active:scale-95"
             >
               Sign up
             </button>

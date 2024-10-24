@@ -4,6 +4,7 @@ import "./globals.css";
 import { AuthProvider } from '@/hooks/useAuth'; // Adjust the import based on your file structure
 import Header from './components/Header/Header';  // Adjust the path if needed
 import { LoadingProvider } from '../context/LoadingContext';
+import { Toaster } from 'react-hot-toast';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,6 +35,7 @@ export default function RootLayout({
       >
         <AuthProvider>
           <Header/>
+          <Toaster position="top-right" />
           <LoadingProvider>
           {children}
           </LoadingProvider>

@@ -46,7 +46,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, errorMessage }) => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
-                className="mt-1 block w-full px-3 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full px-3 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-secondary focus:border-green-secondary"
               />
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <UserIcon className="h-5 w-5 text-gray-400" />
@@ -60,7 +60,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, errorMessage }) => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
                 required
-                className="mt-1 block w-full px-3 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full px-3 py-2 pl-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-secondary focus:border-green-secondary"
               />
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <LockClosedIcon className="h-5 w-5 text-gray-400" />
@@ -76,7 +76,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, errorMessage }) => {
             )}
             <button
               type="submit"
-              className="btn w-full py-2 px-4"
+              className="w-full py-2 px-4 bg-green-primary text-white rounded-[12px] hover:bg-green-secondary transition-colors transition-transform duration-200 active:scale-95"
             >
               Login
             </button>
