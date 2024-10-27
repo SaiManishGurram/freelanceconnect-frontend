@@ -1,45 +1,36 @@
 // src/components/jobs/JobList.tsx
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import JobCard from './JobCard';
-import { getEmployerJobs } from '../../../services/apiService';
 import { useLoading } from '../../../context/LoadingContext';
 import Spinner from '../../components/Spinner';
-// Define the job type explicitly
+
 interface Job {
   _id: string;
   title: string;
   description: string;
-  skills: string;
+  skills: [];
+  salary: number;
+  createdAt: string;
 }
 
-const JobList: React.FC = () => {
-  // Define the type for the jobs state
-  const [jobs, setJobs] = useState<Job[]>([]);
-  const { loading, setLoading } = useLoading();
+interface JobListProps {
+  jobs: Job[];
+  onJobDelete: (jobId: string) => void;
+  onJobEdit: (jobId: string) => void;
+}
 
-  useEffect(() => {
-    const fetchJobs = async () => {
-      setLoading(true);
-      try {
-        const jobData = await getEmployerJobs();
-        setJobs(jobData);
-      } catch (error) {
-        console.error('Error fetching jobs:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchJobs();
-  }, []);
+const JobList: React.FC<JobListProps> = ({ jobs, onJobDelete, onJobEdit }) => {
+  const { loading } = useLoading();
 
   return (
     <div>
       {loading && <Spinner />}
       {jobs.length > 0 ? (
-        jobs.map((job) => <JobCard key={job._id} job={job} />)
+        jobs.map((job) => (
+          <JobCard key={job._id} job={job} onJobDelete={onJobDelete} onJobEdit={onJobEdit}/>
+        ))
       ) : (
         <p>No job postings found.</p>
       )}
