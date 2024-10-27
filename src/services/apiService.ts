@@ -56,3 +56,7 @@ export const createJob = async (jobData: {
 export const deleteJob = async (job: any) => {
   return await apiRequest(endpoints.deleteEmployerJob + job._id, 'DELETE');
 };
+
+export const updateJob = async (jobId: any, jobData: any) => {
+  return await apiRequest(endpoints.updateEmployerJob + jobId, 'PUT', jobData);
+}; 
