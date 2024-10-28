@@ -6,7 +6,9 @@ const endpoints = {
   getEmployerJobs: `${BASE_API_URL}/api/employer/jobs`,  
   createEmployerJob: `${BASE_API_URL}/api/employer/jobs/createJob`,
   deleteEmployerJob: `${BASE_API_URL}/api/employer/jobs/deleteJob/`,
-  updateEmployerJob: `${BASE_API_URL}/api/employer/jobs/updateJob/`
+  updateEmployerJob: `${BASE_API_URL}/api/employer/jobs/updateJob/`,
+  getFreelancerAllJobs: `${BASE_API_URL}/api/freelancer/jobs`
+
 };
 
 export default endpoints;
