@@ -39,11 +39,11 @@ const apiRequest = async (
   return response.json();
 };
 
+//EMPLOYER APIs
 export const getEmployerJobs = async () => {
   return await apiRequest(endpoints.getEmployerJobs);
 };
 
-// POST request for creating a new job
 export const createJob = async (jobData: {
   title: string;
   description: string;
@@ -60,3 +60,8 @@ export const deleteJob = async (job: any) => {
 export const updateJob = async (jobId: any, jobData: any) => {
   return await apiRequest(endpoints.updateEmployerJob + jobId, 'PUT', jobData);
 }; 
+
+//FREELANCER APIs
+export const getFreelancerAllJobs = async () => {
+  return await apiRequest(endpoints.getFreelancerAllJobs);
+};
