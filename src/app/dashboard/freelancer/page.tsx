@@ -1,12 +1,12 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import ProtectedRoute from '../../components/ProtectedRoute';
-import JobList from './jobList'
+import JobList from './JobList'
+import ProposalList from './ProposalList';
 const FreelancerDashboard = () => {
-  const [activeTab, setActiveTab] = useState<'jobPosts' | 'contracts'>('jobPosts');
+  const [activeTab, setActiveTab] = useState<'jobPosts' | 'myProposals'>('jobPosts');
 
-
-  const handleTabClick = (tab: 'jobPosts') => {
+  const handleTabClick = (tab: 'jobPosts' | 'myProposals') => {
     setActiveTab(tab);
   };
 
@@ -21,10 +21,21 @@ const FreelancerDashboard = () => {
           >
             Jobs you might like
           </button>
+          <button
+            onClick={() => handleTabClick('myProposals')}
+            className={`px-4 py-2 border-b-2 transition-colors focus:outline-none  ${activeTab === 'myProposals' ? 'border-green-primary text-green-primary' : 'border-transparent text-gray-600'}`}
+          >
+            My Proposals
+          </button>
         </div>
+
+        {/* Content under the tabs */}
         <div className="mt-4">
           {activeTab === 'jobPosts' && (
-              <JobList />
+            <JobList />
+          )}
+          {activeTab === 'myProposals' && (
+            <ProposalList />
           )}
         </div>
       </div>

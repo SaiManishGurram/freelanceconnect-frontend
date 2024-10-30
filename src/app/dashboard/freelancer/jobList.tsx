@@ -36,6 +36,7 @@ const JobList: React.FC = () => {
     fetchJobs();
   }, []);
 
+  
   return (
     <div className="md:justify-between md:items-center">
       <div className="text-xl md:text-4xl font-semibold mb-4">Jobs you might like </div>
@@ -50,7 +51,9 @@ const JobList: React.FC = () => {
           <p>No job postings found.</p>
         )}
       </div>
+
     </div>
+
 
 
   );
