@@ -65,3 +65,15 @@ export const updateJob = async (jobId: any, jobData: any) => {
 export const getFreelancerAllJobs = async () => {
   return await apiRequest(endpoints.getFreelancerAllJobs);
 };
+
+export const freelancerSubmitProposal = async (jobProposalData: any) => {
+  return await apiRequest(endpoints.submitProposal,'POST',jobProposalData);
+};
+
+export const getFreelancerProposals = async () => {
+  return await apiRequest(endpoints.getFreelancerProposals);
+};
+
+export const deleteFreelancerProposal = async (proposalId: any) => {
+  return await apiRequest(endpoints.deleteFreelancerProposal + proposalId, 'DELETE');
+};
